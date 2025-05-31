@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "SoundCloud Listen Along",
+  "version": "1.0",
+  "description": "Join your friend's SoundCloud listening session!",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://soundcloud.com/*",
+    "ws://127.0.0.1:*/*",
+    "ws://localhost:*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://soundcloud.com/*"],
+      "js": ["scl_bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://soundcloud.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["websocket-client.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
