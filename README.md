@@ -14,6 +14,14 @@ This project has been **discontinued** due to Discord's activity sync and listen
 - **WebSocket Communication**: Establishes connection with desktop applications on `localhost:9005`
 - **Deep Integration**: Hooks into SoundCloud's internal webpack modules for reliable functionality
 
+## Related Components
+
+This extension works in conjunction with a desktop application:
+
+**🖥️ Desktop Application**: [SoundCloud Listen Along - Desktop App](https://github.com/noobtra/Soundcloud-ListenAlong-Client)
+
+The desktop app handles Discord Rich Presence integration and provides the WebSocket server that this extension connects to. **Both components are required** for the system to function.
+
 ## Architecture
 
 The extension consists of several components working together:
